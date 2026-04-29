@@ -1,5 +1,5 @@
 /**
- * PS5 Availability Bot (Discord-enabled version)
+ * PS5 Availability Bot (Discord-enabled version + test alert)
  */
 
 const puppeteer = require("puppeteer-core");
@@ -190,6 +190,11 @@ ${item.url}`
 // MAIN RUN
 async function run() {
   console.log("PS5 Tracker Running...");
+
+  // ✅ TEST MESSAGE (temporary — confirms Discord works)
+  await sendDiscordAlert(
+    "✅ PS5 tracker is running successfully on GitHub Actions."
+  );
 
   const browser = await launchBrowser();
   const page = await browser.newPage();
